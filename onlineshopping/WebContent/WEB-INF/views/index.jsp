@@ -79,6 +79,10 @@
    <jsp:include page="/WEB-INF/views/contact.jsp"></jsp:include>
    </c:if>
    
+    <c:if test="${userClickAllProducts==true  or  userClickCategoryProducts==true }">
+   <jsp:include page="/WEB-INF/views/listProducts.jsp"></jsp:include>
+   </c:if>
+   
  </div>
    
    

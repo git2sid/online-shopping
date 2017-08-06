@@ -10,11 +10,13 @@ $(function()
 		$('#about').addClass('active');
 		break;
 		
-	case 'Products' :
-		$('#products').addClass('active');
+	case 'All Products' :
+		$('#listproducts').addClass('active');
 		break;
 	default :
-	$('#home').addClass('active');
+		if(menu==home) break;
+	$('#listproducts').addClass('active');
+	$('#a_'+menu).addClass('active');
 	break;
 	}
 		}

@@ -26,9 +26,27 @@
   </build>
   <properties>
   <javaee.version>7.0</javaee.version>
-  <spring.version>4.3.6.RELEASE</spring.version>
+  <spring.version>4.3.8.RELEASE</spring.version>
+  <hibernate.version>5.2.7.Final</hibernate.version>
   </properties>
   <dependencies>
+  
+  <!-- adding backend here -->
+<!--   the below idea failed maybe due to the war packaging  -->
+ <!-- <dependency>
+   <groupId>shoppingbackend</groupId>
+  <artifactId>shoppingbackend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  </dependency> -->
+   <!-- adding backend here -->
+   
+   <!-- h2 database  -->
+  <dependency>
+   <groupId>com.h2database</groupId>
+   <artifactId>h2</artifactId>
+   <version>1.4.196</version>
+   </dependency>
+   
   	<dependency>
   		<groupId>javax</groupId>
   		<artifactId>javaee-api</artifactId>
@@ -42,9 +60,30 @@
   		<version>${spring.version}</version>
   	</dependency>
   	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>${spring.version}</version>
+  	</dependency>
+  	<dependency>
   		<groupId>jstl</groupId>
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  		<version>${hibernate.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.commons</groupId>
+  		<artifactId>commons-dbcp2</artifactId>
+  		<version>2.1.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.12</version>
+  		<scope>test</scope>
   	</dependency>
   </dependencies>
 </project>

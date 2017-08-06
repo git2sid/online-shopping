@@ -16,8 +16,8 @@
                     <li id="about">
                         <a href="${pageContext.request.contextPath}/about">AboutUs</a>
                     </li>
-                    <li id="products">
-                        <a href="${pageContext.request.contextPath}/products">View Products</a>
+                    <li id="listproducts">
+                        <a href="${pageContext.request.contextPath}/view/all/products">View Products</a>
                     </li >
                     <li id="contact">
                         <a href="${pageContext.request.contextPath}/contact">Contact</a>
