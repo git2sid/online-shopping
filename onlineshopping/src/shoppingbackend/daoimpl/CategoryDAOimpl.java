@@ -117,6 +117,7 @@ public class CategoryDAOimpl implements CategoryDAO{
 		category.setActive(false);
 		try
 		{
+			System.out.println("inside try part");
 		sessionFactory.getCurrentSession().update(category);
 		return true;
 		}

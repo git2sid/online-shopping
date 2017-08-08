@@ -97,7 +97,7 @@ public class CategoryTestCase {
 	{
 		
 		//for adding the data
-		category =new Category();
+	/*	category =new Category();
 		category.setName("laptop");
 		category.setDescription("school image");
 		category.setImageURL("img1.png");
@@ -106,7 +106,7 @@ public class CategoryTestCase {
 		category.setName("mouse");
 		category.setDescription("school image");
 		category.setImageURL("img2.png");
-		assertEquals("successfully added a category",true,categoryDAO.addCategory(category));
+		assertEquals("successfully added a category",true,categoryDAO.addCategory(category));*/
 		category =new Category();
 		category.setName("freezer");
 		category.setDescription("school image");
@@ -125,9 +125,10 @@ public class CategoryTestCase {
 		
 		assertEquals("successfully deleted a category",true,categoryDAO.deleteCategory(category));
 		
+		int size=categoryDAO.list().size();
 		
 		//fetching the list of category
-//		assertEquals("successfully got list of category",11,categoryDAO.list().size());
+	assertEquals("successfully got list of category",size,categoryDAO.list().size());
 		
 		
 		

@@ -37,6 +37,7 @@
     <title>Online SHopping  - ${title} </title>
     <script >
     window.menu= '${title}'
+    window.contextRoot='${contextRoot}'
     </script>
 
     <!-- Bootstrap Core CSS -->
@@ -44,6 +45,10 @@
     
     <!-- bootstrap readable theme -->
         <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+        
+        <!-- data table bootstrap.css -->
+          <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+        
     <!-- Custom CSS -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -83,6 +88,11 @@
    <jsp:include page="/WEB-INF/views/listProducts.jsp"></jsp:include>
    </c:if>
    
+   <!-- including the single product page -->
+     <c:if test="${userClickShowProduct==true }">
+   <jsp:include page="/WEB-INF/views/singleProduct.jsp"></jsp:include>
+   </c:if>
+   
  </div>
    
    
@@ -96,6 +106,14 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${js}/bootstrap.min.js"></script>
+    
+    <!-- jquery datatables -->
+      <script src="${js}/jquery.dataTables.js"></script>
+      
+    <!--   datatables.bootstrap.js for data table -->
+    <script src="${js}/dataTables.bootstrap.js"></script>
+    
+    
     <!-- my made script file  -->
       <script src="${js}/myApp.js"></script>
 </div>

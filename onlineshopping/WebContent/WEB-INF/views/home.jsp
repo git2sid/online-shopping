@@ -1,11 +1,16 @@
  <div class="container">
 
+
+
+
+
+
         <div class="row">
 
-
+<div class="col-md-3">
     <!-- left bar  -->
            <jsp:include page="./shared/leftbar.jsp"></jsp:include>
-
+</div>
             <div class="col-md-9">
 
                 <div class="row carousel-holder">

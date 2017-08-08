@@ -1,5 +1,7 @@
 package onlineshopping.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,20 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import shoppingbackend.dao.CategoryDAO;
+import shoppingbackend.dao.ProductDAO;
 import shoppingbackend.dto.Category;
+import shoppingbackend.dto.Product;
 //import shoppingbackend.daoimpl.CategoryDAOimpl;
 
 @Controller
 public class PageController {
-
+private static final Logger logger=LoggerFactory.getLogger(PageController.class);
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	
 	@RequestMapping(value= {"/","/home","/index"})
 	public ModelAndView page()
 	{
 		ModelAndView mv = new ModelAndView("index");
+		logger.info("inside logger in page controller for info");
+		logger.debug("inside logger in page controller for debug");
 		mv.addObject("title","home");
 		mv.addObject("categories",categoryDAO.list());
 		mv.addObject("userClickHome",true);
@@ -79,6 +88,20 @@ public class PageController {
 		mv.addObject("categories",categoryDAO.list());
 		mv.addObject("userClickCategoryProducts",true);
 		return mv;
+	}
+	
+	@RequestMapping("/show/{id}/product")
+	public ModelAndView showProductBasedOnId(@PathVariable("id") int id)
+	{
+		Product product= productDAO.get(id);
+	
+		product.setViews(product.getViews()+1);
+		productDAO.update(product);
+	ModelAndView mv=new ModelAndView("index");
+	mv.addObject("product",product);
+	mv.addObject("title", product.getName());
+	mv.addObject("userClickShowProduct",true);
+	return mv;
 	}
 	
 	
