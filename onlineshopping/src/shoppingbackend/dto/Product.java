@@ -2,11 +2,19 @@ package shoppingbackend.dto;
 
 import java.util.UUID;
 
+//import javax.mail.Multipart;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
+
+//import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Product {
@@ -14,10 +22,14 @@ public class Product {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private int id;
 private String code;
+@NotBlank(message="the name cannot be blank")
 private String name;
+@NotBlank(message="the brand cannot be empty")
 private String brand;
+@NotBlank(message="the description cannot be empty")
 private String description; /*either use the @jsonIgnore or the transient keyword to avoid json forming of that field*/
 @Column(name="unit_price")
+@Min(value=1, message="the value cannot be lesser than 1")
 private double unitPrice;
 private int quantity;
 @Column(name="is_active")
@@ -28,6 +40,16 @@ private transient int categoryId;
 private transient int supplierId;
 private int purchases;
 private int views;
+@Transient 
+private MultipartFile file;
+
+public MultipartFile getFile() {
+	return file;
+}
+
+public void setFile(MultipartFile file) {
+	this.file = file;
+}
 
 //getting a unique random id for code 
 public Product()

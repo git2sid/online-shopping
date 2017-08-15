@@ -9,12 +9,12 @@
 </encoder>
 
 </appender>
-<logger name="shoppingbackend" level="DEBUG" additivity="false">
+<logger name="shoppingbackend" level="INFO" additivity="false">
 <appender-ref ref="consoleAppender"></appender-ref>
 
 </logger>
 
-<root level="debug">
+<root level="INFO">
 <appender-ref ref="consoleAppender"></appender-ref>
 </root>
 

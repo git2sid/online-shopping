@@ -93,6 +93,10 @@
    <jsp:include page="/WEB-INF/views/singleProduct.jsp"></jsp:include>
    </c:if>
    
+    <c:if test="${userClickManageProducts==true }">
+   <jsp:include page="/WEB-INF/views/manageProducts.jsp"></jsp:include>
+   </c:if>
+   
  </div>
    
    

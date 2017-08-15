@@ -17,7 +17,7 @@ import shoppingbackend.dto.Product;
 @RequestMapping("/json/data")
 public class JsonDataController {
 	
-	@Autowired
+	@Autowired   
 	ProductDAO productDAO;
 	@ResponseBody
 	@RequestMapping("/all/products")
